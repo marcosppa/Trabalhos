@@ -1,0 +1,84 @@
+% Student exercise profile
+:- set_prolog_flag(occurs_check, error).        % disallow cyclic terms
+:- set_prolog_stack(global, limit(8 000 000)).  % limit term space (8Mb)
+:- set_prolog_stack(local,  limit(2 000 000)).  % limit environment space
+
+% Your program goes here
+
+pai(gilberto, goyano).
+pai(antonio, maria).
+pai(goiano, marcos_paulo).
+pai(goiano, ana_paula).
+pai(antonio, elisabete).
+pai(antonio, fatima).
+pai(carlos, alic).
+pai(jucelino, lorena).
+pai(jucelino, larissa).
+mae(rosa, goyano).
+mae(nair, maria).
+mae(nair, fatima).
+mae(nair, elisabete).
+mae(maria, marcos_paulo).
+mae(maria, ana_paula).
+mae(elisabete, alic).
+mae(fatima, lorena).
+mae(fatima, larissa).
+irmao(marcos_paulo, ana_paula).
+primo(marcos_paulo, alic).
+primo(marcos_paulo, lorena).
+primo(marcos_paulo, larissa).
+primo(alic, larissa).
+primo(alic, lorena).
+prima(ana_paula, alic).
+prima(ana_paula, lorena).
+prima(ana_paula, larissa).
+sobrinho(marcos_paulo, elisabete).
+sobrinho(marcos_paulo, fatima).
+sobrinho(marcos_paulo, jucelino).
+sobrinho(alic, maria).
+sobrinho(alic, goyano).
+sobrinho(alic, fatima).
+sobrinho(alic, jucelino).
+sobrinha(ana_paula, elisabete).
+sobrinha(ana_paula, fatima).
+sobrinha(ana_paula, jucelino).
+sobrinha(lorena, elisabete).
+sobrinha(lorena, maria).
+sobrinha(larissa, elisabete).
+sobrinha(larissa, maria).
+avô(gilberto, marcos_paulo).
+avô( gilberto, ana_paula).
+avô(antonio, marcos_paulo).
+avô(antonio, ana_paula).
+avô(antonio, alic).
+avô(antonio, lorena).
+avô(antonio, larissa).
+avó(rosa, marcos_paulo).
+avó(rosa, ana_paula).
+avó(nair, marcos_paulo).
+avó(nair, ana_paula).
+avó(nair, alic).
+avó(nair, lorena).
+avó(nair, larissa).
+
+tias(X, Y) :-
+    mae(X, Z),
+    primo(Y, Z).
+
+/** <examples>
+
+?- mae(X, maria).
+?- mae(X, marcos_paulo).
+?- tias(X, Y).
+?- primo(x,alic).
+?- primo(marcos_paulo,Y).
+?- irmao(X, ana_paula).
+?- prima(X, lorena).
+?- avó(X, alic).
+?- avó(X, ana_paula).
+?- avô(X, marcos_paulo).
+?- pai(X, goyano).
+?- pai(X, marcos_paulo).
+
+
+*/
